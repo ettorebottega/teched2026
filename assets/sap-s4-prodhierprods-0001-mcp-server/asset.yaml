@@ -1,0 +1,21 @@
+apiVersion: asset.sap/v1
+kind: Asset
+type: mcp-server
+
+metadata:
+  name: sap-s4-prodhierprods-0001-mcp-server
+  description: Exposes SAP S/4HANA Products to Product Hierarchies Assignment OData API as MCP tools for reading product hierarchy nodes and assignments.
+  version: "1.0.0"
+  translation: mcp-translation/translation.json
+  apiSpec: mcp-translation/api-spec.edmx
+
+requires:
+  - name: PRODHIERPRODS_0001
+    kind: api
+    ordId: sap.s4:apiResource:PRODHIERPRODS_0001:v1
+
+provides:
+  apis:
+    - name: sap-s4-prodhierprods-0001-mcp-server
+      kind: mcp-server
+      ordId: customer.build:apiResource:product-master-data-agent-6f1ab.sap-s4-prodhierprods-0001-mcp-server:v1

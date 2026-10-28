@@ -1,0 +1,1833 @@
+{
+  "servers": {
+    "sap-s4-api-product-srv": {
+      "mcp_server_name": "sap.mcp/api_product_srv",
+      "description": "MCP server for the SAP S/4HANA Product Master (A2X) API - product details, descriptions, and basic text.",
+      "tools": {
+        "get_metadata_api_product_srv": {
+          "description": "Retrieve OData metadata for the Product Master API.",
+          "input_schema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "mock_response": {
+            "@odata.context": "$metadata",
+            "value": []
+          }
+        },
+        "batch_for_api_product_srv": {
+          "description": "Execute batch requests against the Product Master API.",
+          "input_schema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "mock_response": {}
+        },
+        "list_a_product_for_api_product_srv": {
+          "description": "Retrieve a list of products from the Product Master API.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$top": {
+                "type": "string",
+                "description": "Maximum number of records to return (max 100)"
+              },
+              "$skip": {
+                "type": "string",
+                "description": "Number of records to skip"
+              },
+              "$filter": {
+                "type": "string",
+                "description": "OData filter expression"
+              },
+              "$select": {
+                "type": "string",
+                "description": "Fields to return"
+              },
+              "$orderby": {
+                "type": "string",
+                "description": "Sort order"
+              }
+            },
+            "required": []
+          },
+          "mock_response": {
+            "results": [
+              {
+                "Product": "TG11",
+                "ProductType": "FERT",
+                "BaseUnit": "EA",
+                "ProductGroup": "L001",
+                "Division": "00",
+                "GrossWeight": "2.500",
+                "NetWeight": "2.100",
+                "WeightUnit": "KG",
+                "SizeOrDimensionText": "",
+                "ProductStandardID": "12345678",
+                "CreationDate": "/Date(1609459200000)/",
+                "LastChangeDate": "/Date(1700000000000)/",
+                "IsMarkedForDeletion": false
+              },
+              {
+                "Product": "P-100",
+                "ProductType": "FERT",
+                "BaseUnit": "PC",
+                "ProductGroup": "M001",
+                "Division": "01",
+                "GrossWeight": "1.200",
+                "NetWeight": "1.000",
+                "WeightUnit": "KG",
+                "SizeOrDimensionText": "",
+                "ProductStandardID": "87654321",
+                "CreationDate": "/Date(1609459200000)/",
+                "LastChangeDate": "/Date(1700000000000)/",
+                "IsMarkedForDeletion": false
+              }
+            ]
+          }
+        },
+        "get_a_product_for_api_product_srv": {
+          "description": "Retrieve a single product by product ID from the Product Master API.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "Product": {
+                "type": "string",
+                "description": "Product ID"
+              },
+              "$select": {
+                "type": "string",
+                "description": "Fields to return"
+              }
+            },
+            "required": [
+              "Product"
+            ]
+          },
+          "mock_response": {
+            "Product": "TG11",
+            "ProductType": "FERT",
+            "BaseUnit": "EA",
+            "ProductGroup": "L001",
+            "Division": "00",
+            "GrossWeight": "2.500",
+            "NetWeight": "2.100",
+            "WeightUnit": "KG",
+            "ProductStandardID": "12345678",
+            "CreationDate": "/Date(1609459200000)/",
+            "LastChangeDate": "/Date(1700000000000)/",
+            "IsMarkedForDeletion": false
+          }
+        },
+        "count_a_product_for_api_product_srv": {
+          "description": "Count the number of products matching the filter.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$filter": {
+                "type": "string",
+                "description": "OData filter expression"
+              }
+            },
+            "required": []
+          },
+          "mock_response": 42
+        },
+        "list_a_productbasictext_for_api_product_srv": {
+          "description": "Retrieve basic text/descriptions for products.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$top": {
+                "type": "string",
+                "description": "Maximum number of records"
+              },
+              "$filter": {
+                "type": "string",
+                "description": "OData filter expression"
+              },
+              "$select": {
+                "type": "string",
+                "description": "Fields to return"
+              }
+            },
+            "required": []
+          },
+          "mock_response": {
+            "results": [
+              {
+                "Product": "TG11",
+                "Language": "EN",
+                "LongText": "Notebook Basic 15 - Intel Core i5, 15.6 inch display, 8GB RAM, 256GB SSD"
+              }
+            ]
+          }
+        },
+        "get_a_productbasictext_for_api_product_srv": {
+          "description": "Retrieve basic text for a specific product and language.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "Product": {
+                "type": "string",
+                "description": "Product ID"
+              },
+              "Language": {
+                "type": "string",
+                "description": "Language key (e.g. EN)"
+              }
+            },
+            "required": [
+              "Product",
+              "Language"
+            ]
+          },
+          "mock_response": {
+            "Product": "TG11",
+            "Language": "EN",
+            "LongText": "Notebook Basic 15 - Intel Core i5, 15.6 inch display, 8GB RAM, 256GB SSD"
+          }
+        },
+        "count_a_productbasictext_for_api_product_srv": {
+          "description": "Count product basic text records.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$filter": {
+                "type": "string"
+              }
+            },
+            "required": []
+          },
+          "mock_response": 2
+        },
+        "list_a_productdescription_for_api_product_srv": {
+          "description": "Retrieve multilingual product descriptions.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$top": {
+                "type": "string",
+                "description": "Maximum number of records"
+              },
+              "$filter": {
+                "type": "string",
+                "description": "OData filter expression"
+              },
+              "$select": {
+                "type": "string",
+                "description": "Fields to return"
+              }
+            },
+            "required": []
+          },
+          "mock_response": {
+            "results": [
+              {
+                "Product": "TG11",
+                "Language": "EN",
+                "ProductDescription": "Notebook Basic 15"
+              },
+              {
+                "Product": "P-100",
+                "Language": "EN",
+                "ProductDescription": "Notebook Professional 15"
+              }
+            ]
+          }
+        },
+        "get_a_productdescription_for_api_product_srv": {
+          "description": "Retrieve the description for a specific product and language.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "Product": {
+                "type": "string",
+                "description": "Product ID"
+              },
+              "Language": {
+                "type": "string",
+                "description": "Language key (e.g. EN)"
+              }
+            },
+            "required": [
+              "Product",
+              "Language"
+            ]
+          },
+          "mock_response": {
+            "Product": "TG11",
+            "Language": "EN",
+            "ProductDescription": "Notebook Basic 15"
+          }
+        },
+        "count_a_productdescription_for_api_product_srv": {
+          "description": "Count product description records.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$filter": {
+                "type": "string"
+              }
+            },
+            "required": []
+          },
+          "mock_response": 10
+        }
+      }
+    },
+    "sap-s4-api-clfn-product-srv": {
+      "mcp_server_name": "sap.mcp/api_clfn_product_srv",
+      "description": "MCP server for the SAP S/4HANA Product Classification API - product classes and characteristics.",
+      "tools": {
+        "get_metadata_api_clfn_product_srv": {
+          "description": "Retrieve OData metadata for the Product Classification API.",
+          "input_schema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "mock_response": {
+            "@odata.context": "$metadata",
+            "value": []
+          }
+        },
+        "batch_for_api_clfn_product_srv": {
+          "description": "Execute batch requests against the Classification API.",
+          "input_schema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "mock_response": {}
+        },
+        "list_a_clfnproduct_for_api_clfn_product_srv": {
+          "description": "Retrieve a list of classified products.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$top": {
+                "type": "string"
+              },
+              "$filter": {
+                "type": "string"
+              },
+              "$select": {
+                "type": "string"
+              }
+            },
+            "required": []
+          },
+          "mock_response": {
+            "results": [
+              {
+                "Product": "TG11",
+                "ClassType": "001",
+                "Class": "NOTEBOOK_SPECS"
+              }
+            ]
+          }
+        },
+        "get_a_clfnproduct_for_api_clfn_product_srv": {
+          "description": "Retrieve classification data for a specific product.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "Product": {
+                "type": "string",
+                "description": "Product ID"
+              },
+              "ClassType": {
+                "type": "string",
+                "description": "Classification class type"
+              },
+              "Class": {
+                "type": "string",
+                "description": "Class name"
+              }
+            },
+            "required": [
+              "Product",
+              "ClassType",
+              "Class"
+            ]
+          },
+          "mock_response": {
+            "Product": "TG11",
+            "ClassType": "001",
+            "Class": "NOTEBOOK_SPECS"
+          }
+        },
+        "count_a_clfnproduct_for_api_clfn_product_srv": {
+          "description": "Count classified products.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$filter": {
+                "type": "string"
+              }
+            },
+            "required": []
+          },
+          "mock_response": 5
+        },
+        "list_a_productcharc_for_api_clfn_product_srv": {
+          "description": "Retrieve product characteristics for classification.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$top": {
+                "type": "string"
+              },
+              "$filter": {
+                "type": "string"
+              },
+              "$select": {
+                "type": "string"
+              }
+            },
+            "required": []
+          },
+          "mock_response": {
+            "results": [
+              {
+                "Product": "TG11",
+                "ClassType": "001",
+                "Class": "NOTEBOOK_SPECS",
+                "CharcInternalID": "0000000001",
+                "Characteristic": "SCREEN_SIZE",
+                "CharcValue": "15.6"
+              },
+              {
+                "Product": "TG11",
+                "ClassType": "001",
+                "Class": "NOTEBOOK_SPECS",
+                "CharcInternalID": "0000000002",
+                "Characteristic": "RAM_GB",
+                "CharcValue": "8"
+              }
+            ]
+          }
+        },
+        "get_a_productcharc_for_api_clfn_product_srv": {
+          "description": "Retrieve a specific product characteristic.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "Product": {
+                "type": "string"
+              },
+              "ClassType": {
+                "type": "string"
+              },
+              "Class": {
+                "type": "string"
+              },
+              "CharcInternalID": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "Product",
+              "ClassType",
+              "Class",
+              "CharcInternalID"
+            ]
+          },
+          "mock_response": {
+            "Product": "TG11",
+            "ClassType": "001",
+            "Class": "NOTEBOOK_SPECS",
+            "CharcInternalID": "0000000001",
+            "Characteristic": "SCREEN_SIZE",
+            "CharcValue": "15.6"
+          }
+        },
+        "count_a_productcharc_for_api_clfn_product_srv": {
+          "description": "Count product characteristics.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$filter": {
+                "type": "string"
+              }
+            },
+            "required": []
+          },
+          "mock_response": 8
+        },
+        "list_a_productcharcvalue_for_api_clfn_product_srv": {
+          "description": "Retrieve characteristic value details for classified products.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$top": {
+                "type": "string"
+              },
+              "$filter": {
+                "type": "string"
+              }
+            },
+            "required": []
+          },
+          "mock_response": {
+            "results": [
+              {
+                "Product": "TG11",
+                "CharcInternalID": "0000000001",
+                "CharcValue": "15.6",
+                "CharcValueUnit": "IN"
+              }
+            ]
+          }
+        },
+        "get_a_productcharcvalue_for_api_clfn_product_srv": {
+          "description": "Retrieve a specific characteristic value.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "Product": {
+                "type": "string"
+              },
+              "CharcInternalID": {
+                "type": "string"
+              },
+              "CharcValue": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "Product",
+              "CharcInternalID",
+              "CharcValue"
+            ]
+          },
+          "mock_response": {
+            "Product": "TG11",
+            "CharcInternalID": "0000000001",
+            "CharcValue": "15.6",
+            "CharcValueUnit": "IN"
+          }
+        },
+        "count_a_productcharcvalue_for_api_clfn_product_srv": {
+          "description": "Count characteristic values.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$filter": {
+                "type": "string"
+              }
+            },
+            "required": []
+          },
+          "mock_response": 3
+        },
+        "list_a_productclass_for_api_clfn_product_srv": {
+          "description": "Retrieve classification classes for a product.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$top": {
+                "type": "string"
+              },
+              "$filter": {
+                "type": "string"
+              }
+            },
+            "required": []
+          },
+          "mock_response": {
+            "results": [
+              {
+                "Product": "TG11",
+                "ClassType": "001",
+                "Class": "NOTEBOOK_SPECS",
+                "ClassDescription": "Notebook Technical Specifications"
+              }
+            ]
+          }
+        },
+        "get_a_productclass_for_api_clfn_product_srv": {
+          "description": "Retrieve a specific classification class for a product.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "Product": {
+                "type": "string"
+              },
+              "ClassType": {
+                "type": "string"
+              },
+              "Class": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "Product",
+              "ClassType",
+              "Class"
+            ]
+          },
+          "mock_response": {
+            "Product": "TG11",
+            "ClassType": "001",
+            "Class": "NOTEBOOK_SPECS",
+            "ClassDescription": "Notebook Technical Specifications"
+          }
+        },
+        "count_a_productclass_for_api_clfn_product_srv": {
+          "description": "Count product classes.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$filter": {
+                "type": "string"
+              }
+            },
+            "required": []
+          },
+          "mock_response": 2
+        },
+        "list_to_productcharc_in_a_clfnproduct_for_api_clfn_product_srv": {
+          "description": "Navigate from classified product to its characteristics.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "Product": {
+                "type": "string"
+              },
+              "ClassType": {
+                "type": "string"
+              },
+              "Class": {
+                "type": "string"
+              },
+              "$top": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "Product",
+              "ClassType",
+              "Class"
+            ]
+          },
+          "mock_response": {
+            "results": [
+              {
+                "Characteristic": "SCREEN_SIZE",
+                "CharcValue": "15.6"
+              },
+              {
+                "Characteristic": "RAM_GB",
+                "CharcValue": "8"
+              }
+            ]
+          }
+        },
+        "count_to_productcharc_in_a_clfnproduct_for_api_clfn_product_srv": {
+          "description": "Count characteristics navigated from classified product.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "Product": {
+                "type": "string"
+              },
+              "ClassType": {
+                "type": "string"
+              },
+              "Class": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "Product",
+              "ClassType",
+              "Class"
+            ]
+          },
+          "mock_response": 4
+        },
+        "list_to_productclass_in_a_clfnproduct_for_api_clfn_product_srv": {
+          "description": "Navigate from classified product to its classes.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "Product": {
+                "type": "string"
+              },
+              "ClassType": {
+                "type": "string"
+              },
+              "Class": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "Product",
+              "ClassType",
+              "Class"
+            ]
+          },
+          "mock_response": {
+            "results": [
+              {
+                "Class": "NOTEBOOK_SPECS",
+                "ClassDescription": "Notebook Technical Specifications"
+              }
+            ]
+          }
+        },
+        "count_to_productclass_in_a_clfnproduct_for_api_clfn_product_srv": {
+          "description": "Count classes navigated from classified product.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "Product": {
+                "type": "string"
+              },
+              "ClassType": {
+                "type": "string"
+              },
+              "Class": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "Product",
+              "ClassType",
+              "Class"
+            ]
+          },
+          "mock_response": 1
+        }
+      }
+    },
+    "sap-s4-prodhierprods-0001": {
+      "mcp_server_name": "sap.mcp/prodhierprods_0001",
+      "description": "MCP server for the SAP S/4HANA Products to Product Hierarchies Assignment API - hierarchy nodes and product assignments.",
+      "tools": {
+        "get_metadata_sap_self": {
+          "description": "Retrieve OData metadata for the Product Hierarchy API.",
+          "input_schema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "mock_response": {
+            "@odata.context": "$metadata",
+            "value": []
+          }
+        },
+        "batch_for_sap_self": {
+          "description": "Execute batch requests against the Product Hierarchy API.",
+          "input_schema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "mock_response": {}
+        },
+        "list_produnivhiernormalnode_for_sap_self": {
+          "description": "Retrieve a list of product hierarchy nodes.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$top": {
+                "type": "string"
+              },
+              "$filter": {
+                "type": "string"
+              },
+              "$select": {
+                "type": "string"
+              }
+            },
+            "required": []
+          },
+          "mock_response": {
+            "results": [
+              {
+                "ProductHierarchy": "00000-0",
+                "ProdHierarchyNode": "00000-0-1",
+                "ProdHierarchyNodeName": "Electronics",
+                "HierarchyNodeLevel": "1"
+              },
+              {
+                "ProductHierarchy": "00000-0",
+                "ProdHierarchyNode": "00000-0-1-2",
+                "ProdHierarchyNodeName": "Notebooks",
+                "HierarchyNodeLevel": "2"
+              }
+            ]
+          }
+        },
+        "get_produnivhiernormalnode_for_sap_self": {
+          "description": "Retrieve a specific product hierarchy node.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "ProductHierarchy": {
+                "type": "string",
+                "description": "Product hierarchy ID"
+              },
+              "ProdHierarchyNode": {
+                "type": "string",
+                "description": "Hierarchy node ID"
+              }
+            },
+            "required": [
+              "ProductHierarchy",
+              "ProdHierarchyNode"
+            ]
+          },
+          "mock_response": {
+            "ProductHierarchy": "00000-0",
+            "ProdHierarchyNode": "00000-0-1-2",
+            "ProdHierarchyNodeName": "Notebooks",
+            "HierarchyNodeLevel": "2"
+          }
+        },
+        "count_produnivhiernormalnode_for_sap_self": {
+          "description": "Count product hierarchy nodes.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$filter": {
+                "type": "string"
+              }
+            },
+            "required": []
+          },
+          "mock_response": 12
+        },
+        "list_produnivhierprodbyhiernode_for_sap_self": {
+          "description": "Retrieve products assigned to hierarchy nodes.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$top": {
+                "type": "string"
+              },
+              "$filter": {
+                "type": "string"
+              },
+              "$select": {
+                "type": "string"
+              }
+            },
+            "required": []
+          },
+          "mock_response": {
+            "results": [
+              {
+                "ProductHierarchy": "00000-0",
+                "ProdHierarchyNode": "00000-0-1-2",
+                "Product": "TG11",
+                "HierarchyNodeLevel": "2"
+              },
+              {
+                "ProductHierarchy": "00000-0",
+                "ProdHierarchyNode": "00000-0-1-2",
+                "Product": "P-100",
+                "HierarchyNodeLevel": "2"
+              }
+            ]
+          }
+        },
+        "get_produnivhierprodbyhiernode_for_sap_self": {
+          "description": "Retrieve a specific product-to-hierarchy-node assignment.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "ProductHierarchy": {
+                "type": "string"
+              },
+              "ProdHierarchyNode": {
+                "type": "string"
+              },
+              "Product": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "ProductHierarchy",
+              "ProdHierarchyNode",
+              "Product"
+            ]
+          },
+          "mock_response": {
+            "ProductHierarchy": "00000-0",
+            "ProdHierarchyNode": "00000-0-1-2",
+            "Product": "TG11",
+            "HierarchyNodeLevel": "2"
+          }
+        },
+        "count_produnivhierprodbyhiernode_for_sap_self": {
+          "description": "Count product-to-hierarchy-node assignments.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$filter": {
+                "type": "string"
+              }
+            },
+            "required": []
+          },
+          "mock_response": 25
+        }
+      }
+    },
+    "sap-s4-slspricingprocedure-srv": {
+      "mcp_server_name": "sap.s4/api-slspricingprocedure-srv-mcp-server",
+      "description": "MCP server for SAP S/4HANA Pricing Procedure in Sales API \u2014 pricing procedures and their steps.",
+      "tools": {
+        "get_metadata_api_slspricingprocedure_srv": {
+          "description": "Retrieve OData metadata for the Pricing Procedure in Sales API.",
+          "input_schema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "mock_response": {
+            "@odata.context": "$metadata",
+            "value": []
+          }
+        },
+        "list_a_slspricingprocedure_for_api_slspricingprocedure_srv": {
+          "description": "Retrieve a list of sales pricing procedures.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$top": {
+                "type": "string"
+              },
+              "$filter": {
+                "type": "string"
+              },
+              "$select": {
+                "type": "string"
+              }
+            },
+            "required": []
+          },
+          "mock_response": {
+            "results": [
+              {
+                "SalesPricingProcedure": "RVAA01",
+                "SalesPricingProcedureName": "Standard Sales Procedure",
+                "IsIntercompanyPricingProcedure": false
+              },
+              {
+                "SalesPricingProcedure": "RVAA02",
+                "SalesPricingProcedureName": "Export Sales Procedure",
+                "IsIntercompanyPricingProcedure": false
+              }
+            ]
+          }
+        },
+        "get_a_slspricingprocedure_for_api_slspricingprocedure_srv": {
+          "description": "Retrieve a specific sales pricing procedure by key.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "SalesPricingProcedure": {
+                "type": "string",
+                "description": "Pricing procedure key"
+              }
+            },
+            "required": [
+              "SalesPricingProcedure"
+            ]
+          },
+          "mock_response": {
+            "SalesPricingProcedure": "RVAA01",
+            "SalesPricingProcedureName": "Standard Sales Procedure",
+            "IsIntercompanyPricingProcedure": false
+          }
+        },
+        "count_a_slspricingprocedure_for_api_slspricingprocedure_srv": {
+          "description": "Count sales pricing procedures.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$filter": {
+                "type": "string"
+              }
+            },
+            "required": []
+          },
+          "mock_response": 5
+        },
+        "list_a_slspricingprocedureitem_for_api_slspricingprocedure_srv": {
+          "description": "Retrieve steps of a sales pricing procedure.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$top": {
+                "type": "string"
+              },
+              "$filter": {
+                "type": "string"
+              },
+              "$select": {
+                "type": "string"
+              }
+            },
+            "required": []
+          },
+          "mock_response": {
+            "results": [
+              {
+                "SalesPricingProcedure": "RVAA01",
+                "PricingProcedureStep": "10",
+                "PricingProcedureCounter": "0",
+                "ConditionType": "PR00",
+                "ConditionTypeName": "Price",
+                "IsConditionMandatory": true
+              },
+              {
+                "SalesPricingProcedure": "RVAA01",
+                "PricingProcedureStep": "20",
+                "PricingProcedureCounter": "0",
+                "ConditionType": "K007",
+                "ConditionTypeName": "Customer Discount",
+                "IsConditionMandatory": false
+              }
+            ]
+          }
+        },
+        "get_a_slspricingprocedureitem_for_api_slspricingprocedure_srv": {
+          "description": "Retrieve a specific step of a pricing procedure.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "SalesPricingProcedure": {
+                "type": "string"
+              },
+              "PricingProcedureStep": {
+                "type": "string"
+              },
+              "PricingProcedureCounter": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "SalesPricingProcedure",
+              "PricingProcedureStep",
+              "PricingProcedureCounter"
+            ]
+          },
+          "mock_response": {
+            "SalesPricingProcedure": "RVAA01",
+            "PricingProcedureStep": "10",
+            "ConditionType": "PR00",
+            "IsConditionMandatory": true
+          }
+        },
+        "count_a_slspricingprocedureitem_for_api_slspricingprocedure_srv": {
+          "description": "Count steps in pricing procedures.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$filter": {
+                "type": "string"
+              }
+            },
+            "required": []
+          },
+          "mock_response": 12
+        },
+        "list_a_slspricingproceduretext_for_api_slspricingprocedure_srv": {
+          "description": "Retrieve language-dependent text for pricing procedures.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$top": {
+                "type": "string"
+              },
+              "$filter": {
+                "type": "string"
+              }
+            },
+            "required": []
+          },
+          "mock_response": {
+            "results": [
+              {
+                "SalesPricingProcedure": "RVAA01",
+                "Language": "EN",
+                "SalesPricingProcedureName": "Standard Sales Procedure"
+              }
+            ]
+          }
+        },
+        "get_a_slspricingproceduretext_for_api_slspricingprocedure_srv": {
+          "description": "Retrieve specific text for a pricing procedure and language.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "SalesPricingProcedure": {
+                "type": "string"
+              },
+              "Language": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "SalesPricingProcedure",
+              "Language"
+            ]
+          },
+          "mock_response": {
+            "SalesPricingProcedure": "RVAA01",
+            "Language": "EN",
+            "SalesPricingProcedureName": "Standard Sales Procedure"
+          }
+        }
+      }
+    },
+    "sap-s4-slspricingconditionrecord-srv": {
+      "mcp_server_name": "sap.s4/api-slspricingconditionrecord-srv-mcp-server",
+      "description": "MCP server for SAP S/4HANA Condition Record for Pricing in Sales API \u2014 condition records with validity and rates.",
+      "tools": {
+        "list_a_slsprcgcndnrecdvalidity_for_api_slspricingconditionrecord_srv": {
+          "description": "Retrieve a list of condition record validity entries.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$top": {
+                "type": "string"
+              },
+              "$filter": {
+                "type": "string"
+              },
+              "$select": {
+                "type": "string"
+              }
+            },
+            "required": []
+          },
+          "mock_response": {
+            "results": [
+              {
+                "ConditionRecord": "0000000001",
+                "ConditionType": "PR00",
+                "ValidityStartDate": "/Date(1609459200000)/",
+                "ValidityEndDate": "/Date(1767225600000)/",
+                "ConditionRateValue": "100.00",
+                "ConditionRateValueUnit": "EUR",
+                "ConditionQuantity": "1",
+                "ConditionQuantityUnit": "EA"
+              }
+            ]
+          }
+        },
+        "get_a_slsprcgcndnrecdvalidity_for_api_slspricingconditionrecord_srv": {
+          "description": "Retrieve a specific condition record validity entry.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "ConditionRecord": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "ConditionRecord"
+            ]
+          },
+          "mock_response": {
+            "ConditionRecord": "0000000001",
+            "ConditionType": "PR00",
+            "ValidityStartDate": "/Date(1609459200000)/",
+            "ConditionRateValue": "100.00",
+            "ConditionRateValueUnit": "EUR"
+          }
+        },
+        "count_a_slsprcgcndnrecdvalidity_for_api_slspricingconditionrecord_srv": {
+          "description": "Count condition record validity entries.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$filter": {
+                "type": "string"
+              }
+            },
+            "required": []
+          },
+          "mock_response": 3
+        },
+        "list_a_slsprcgconditionrecord_for_api_slspricingconditionrecord_srv": {
+          "description": "Retrieve a list of sales pricing condition records.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$top": {
+                "type": "string"
+              },
+              "$filter": {
+                "type": "string"
+              },
+              "$select": {
+                "type": "string"
+              }
+            },
+            "required": []
+          },
+          "mock_response": {
+            "results": [
+              {
+                "ConditionRecord": "0000000001",
+                "ConditionType": "PR00",
+                "Material": "TG11",
+                "SalesOrganization": "1010",
+                "DistributionChannel": "10",
+                "ConditionRateValue": "100.00",
+                "ConditionRateValueUnit": "EUR"
+              },
+              {
+                "ConditionRecord": "0000000002",
+                "ConditionType": "K007",
+                "Material": "TG11",
+                "CustomerPriceGroup": "01",
+                "ConditionRateValue": "-5.00",
+                "ConditionRateValueUnit": "%"
+              }
+            ]
+          }
+        },
+        "get_a_slsprcgconditionrecord_for_api_slspricingconditionrecord_srv": {
+          "description": "Retrieve a specific pricing condition record.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "ConditionRecord": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "ConditionRecord"
+            ]
+          },
+          "mock_response": {
+            "ConditionRecord": "0000000001",
+            "ConditionType": "PR00",
+            "Material": "TG11",
+            "SalesOrganization": "1010",
+            "ConditionRateValue": "100.00",
+            "ConditionRateValueUnit": "EUR"
+          }
+        },
+        "count_a_slsprcgconditionrecord_for_api_slspricingconditionrecord_srv": {
+          "description": "Count pricing condition records.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$filter": {
+                "type": "string"
+              }
+            },
+            "required": []
+          },
+          "mock_response": 8
+        }
+      }
+    },
+    "sap-s4-slspricingconditiontype-srv": {
+      "mcp_server_name": "sap.s4/api-slspricingconditiontype-srv-mcp-server",
+      "description": "MCP server for SAP S/4HANA Condition Type for Pricing in Sales API \u2014 condition type descriptions and attributes.",
+      "tools": {
+        "list_a_slspricingconditiontype_for_api_slspricingconditiontype_srv": {
+          "description": "Retrieve a list of sales pricing condition types.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$top": {
+                "type": "string"
+              },
+              "$filter": {
+                "type": "string"
+              },
+              "$select": {
+                "type": "string"
+              }
+            },
+            "required": []
+          },
+          "mock_response": {
+            "results": [
+              {
+                "ConditionType": "PR00",
+                "ConditionTypeName": "Price",
+                "ConditionCategory": "B",
+                "ConditionClass": "A",
+                "CalculationType": "C"
+              },
+              {
+                "ConditionType": "K007",
+                "ConditionTypeName": "Customer Discount",
+                "ConditionCategory": "A",
+                "ConditionClass": "A",
+                "CalculationType": "A"
+              }
+            ]
+          }
+        },
+        "get_a_slspricingconditiontype_for_api_slspricingconditiontype_srv": {
+          "description": "Retrieve a specific condition type by key.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "ConditionType": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "ConditionType"
+            ]
+          },
+          "mock_response": {
+            "ConditionType": "PR00",
+            "ConditionTypeName": "Price",
+            "ConditionCategory": "B",
+            "ConditionClass": "A",
+            "CalculationType": "C",
+            "ConditionTypeDescription": "Standard sales price condition type"
+          }
+        },
+        "count_a_slspricingconditiontype_for_api_slspricingconditiontype_srv": {
+          "description": "Count condition types.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$filter": {
+                "type": "string"
+              }
+            },
+            "required": []
+          },
+          "mock_response": 15
+        },
+        "list_to_text_in_a_slspricingconditiontype_for_api_slspricingconditiontype_srv": {
+          "description": "Retrieve language-dependent text for a condition type.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "ConditionType": {
+                "type": "string"
+              },
+              "$top": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "ConditionType"
+            ]
+          },
+          "mock_response": {
+            "results": [
+              {
+                "ConditionType": "PR00",
+                "Language": "EN",
+                "ConditionTypeName": "Price"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "sap-s4-slspricingprocedure-srv": {
+    "mcp_server_name": "sap.s4/api-slspricingprocedure-srv-mcp-server",
+    "description": "MCP server for SAP S/4HANA Pricing Procedure in Sales API \u2014 pricing procedures and their steps.",
+    "tools": {
+      "get_metadata_api_slspricingprocedure_srv": {
+        "description": "Retrieve OData metadata for the Pricing Procedure in Sales API.",
+        "input_schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "mock_response": {
+          "@odata.context": "$metadata",
+          "value": []
+        }
+      },
+      "list_a_slspricingprocedure_for_api_slspricingprocedure_srv": {
+        "description": "Retrieve a list of sales pricing procedures.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "$top": {
+              "type": "string"
+            },
+            "$filter": {
+              "type": "string"
+            },
+            "$select": {
+              "type": "string"
+            }
+          },
+          "required": []
+        },
+        "mock_response": {
+          "results": [
+            {
+              "SalesPricingProcedure": "RVAA01",
+              "SalesPricingProcedureName": "Standard Sales Procedure",
+              "IsIntercompanyPricingProcedure": false
+            },
+            {
+              "SalesPricingProcedure": "RVAA02",
+              "SalesPricingProcedureName": "Export Sales Procedure",
+              "IsIntercompanyPricingProcedure": false
+            }
+          ]
+        }
+      },
+      "get_a_slspricingprocedure_for_api_slspricingprocedure_srv": {
+        "description": "Retrieve a specific sales pricing procedure by key.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "SalesPricingProcedure": {
+              "type": "string",
+              "description": "Pricing procedure key (e.g. RVAA01)"
+            }
+          },
+          "required": [
+            "SalesPricingProcedure"
+          ]
+        },
+        "mock_response": {
+          "SalesPricingProcedure": "RVAA01",
+          "SalesPricingProcedureName": "Standard Sales Procedure",
+          "IsIntercompanyPricingProcedure": false
+        }
+      },
+      "count_a_slspricingprocedure_for_api_slspricingprocedure_srv": {
+        "description": "Count sales pricing procedures.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "$filter": {
+              "type": "string"
+            }
+          },
+          "required": []
+        },
+        "mock_response": 5
+      },
+      "list_a_slspricingprocedureitem_for_api_slspricingprocedure_srv": {
+        "description": "Retrieve steps (items) of a sales pricing procedure.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "$top": {
+              "type": "string"
+            },
+            "$filter": {
+              "type": "string"
+            },
+            "$select": {
+              "type": "string"
+            }
+          },
+          "required": []
+        },
+        "mock_response": {
+          "results": [
+            {
+              "SalesPricingProcedure": "RVAA01",
+              "PricingProcedureStep": "10",
+              "PricingProcedureCounter": "0",
+              "ConditionType": "PR00",
+              "ConditionTypeName": "Price",
+              "IsConditionMandatory": true,
+              "IsConditionStatistical": false
+            },
+            {
+              "SalesPricingProcedure": "RVAA01",
+              "PricingProcedureStep": "20",
+              "PricingProcedureCounter": "0",
+              "ConditionType": "K007",
+              "ConditionTypeName": "Customer Discount",
+              "IsConditionMandatory": false,
+              "IsConditionStatistical": false
+            }
+          ]
+        }
+      },
+      "get_a_slspricingprocedureitem_for_api_slspricingprocedure_srv": {
+        "description": "Retrieve a specific step of a pricing procedure.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "SalesPricingProcedure": {
+              "type": "string"
+            },
+            "PricingProcedureStep": {
+              "type": "string"
+            },
+            "PricingProcedureCounter": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "SalesPricingProcedure",
+            "PricingProcedureStep",
+            "PricingProcedureCounter"
+          ]
+        },
+        "mock_response": {
+          "SalesPricingProcedure": "RVAA01",
+          "PricingProcedureStep": "10",
+          "PricingProcedureCounter": "0",
+          "ConditionType": "PR00",
+          "ConditionTypeName": "Price",
+          "IsConditionMandatory": true
+        }
+      },
+      "count_a_slspricingprocedureitem_for_api_slspricingprocedure_srv": {
+        "description": "Count steps in pricing procedures.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "$filter": {
+              "type": "string"
+            }
+          },
+          "required": []
+        },
+        "mock_response": 12
+      },
+      "list_a_slspricingproceduretext_for_api_slspricingprocedure_srv": {
+        "description": "Retrieve language-dependent text for pricing procedures.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "$top": {
+              "type": "string"
+            },
+            "$filter": {
+              "type": "string"
+            }
+          },
+          "required": []
+        },
+        "mock_response": {
+          "results": [
+            {
+              "SalesPricingProcedure": "RVAA01",
+              "Language": "EN",
+              "SalesPricingProcedureName": "Standard Sales Procedure"
+            }
+          ]
+        }
+      },
+      "get_a_slspricingproceduretext_for_api_slspricingprocedure_srv": {
+        "description": "Retrieve specific text for a pricing procedure and language.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "SalesPricingProcedure": {
+              "type": "string"
+            },
+            "Language": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "SalesPricingProcedure",
+            "Language"
+          ]
+        },
+        "mock_response": {
+          "SalesPricingProcedure": "RVAA01",
+          "Language": "EN",
+          "SalesPricingProcedureName": "Standard Sales Procedure"
+        }
+      }
+    }
+  },
+  "sap-s4-slspricingconditionrecord-srv": {
+    "mcp_server_name": "sap.s4/api-slspricingconditionrecord-srv-mcp-server",
+    "description": "MCP server for SAP S/4HANA Condition Record for Pricing in Sales API \u2014 condition records with validity and rates.",
+    "tools": {
+      "list_a_slsprcgcndnrecdvalidity_for_api_slspricingconditionrecord_srv": {
+        "description": "Retrieve a list of condition record validity entries.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "$top": {
+              "type": "string"
+            },
+            "$filter": {
+              "type": "string"
+            },
+            "$select": {
+              "type": "string"
+            }
+          },
+          "required": []
+        },
+        "mock_response": {
+          "results": [
+            {
+              "ConditionRecord": "0000000001",
+              "ConditionType": "PR00",
+              "ValidityStartDate": "/Date(1609459200000)/",
+              "ValidityEndDate": "/Date(1767225600000)/",
+              "ConditionRateValue": "100.00",
+              "ConditionRateValueUnit": "EUR",
+              "ConditionQuantity": "1",
+              "ConditionQuantityUnit": "EA"
+            }
+          ]
+        }
+      },
+      "get_a_slsprcgcndnrecdvalidity_for_api_slspricingconditionrecord_srv": {
+        "description": "Retrieve a specific condition record validity entry.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "ConditionRecord": {
+              "type": "string",
+              "description": "Condition record number"
+            },
+            "ValidityStartDate": {
+              "type": "string",
+              "description": "Validity start date"
+            }
+          },
+          "required": [
+            "ConditionRecord"
+          ]
+        },
+        "mock_response": {
+          "ConditionRecord": "0000000001",
+          "ConditionType": "PR00",
+          "ValidityStartDate": "/Date(1609459200000)/",
+          "ValidityEndDate": "/Date(1767225600000)/",
+          "ConditionRateValue": "100.00",
+          "ConditionRateValueUnit": "EUR"
+        }
+      },
+      "count_a_slsprcgcndnrecdvalidity_for_api_slspricingconditionrecord_srv": {
+        "description": "Count condition record validity entries.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "$filter": {
+              "type": "string"
+            }
+          },
+          "required": []
+        },
+        "mock_response": 3
+      },
+      "list_a_slsprcgconditionrecord_for_api_slspricingconditionrecord_srv": {
+        "description": "Retrieve a list of sales pricing condition records.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "$top": {
+              "type": "string"
+            },
+            "$filter": {
+              "type": "string"
+            },
+            "$select": {
+              "type": "string"
+            }
+          },
+          "required": []
+        },
+        "mock_response": {
+          "results": [
+            {
+              "ConditionRecord": "0000000001",
+              "ConditionType": "PR00",
+              "ConditionTable": "304",
+              "Material": "TG11",
+              "SalesOrganization": "1010",
+              "DistributionChannel": "10",
+              "ConditionRateValue": "100.00",
+              "ConditionRateValueUnit": "EUR"
+            },
+            {
+              "ConditionRecord": "0000000002",
+              "ConditionType": "K007",
+              "ConditionTable": "005",
+              "Material": "TG11",
+              "CustomerPriceGroup": "01",
+              "ConditionRateValue": "-5.00",
+              "ConditionRateValueUnit": "%"
+            }
+          ]
+        }
+      },
+      "get_a_slsprcgconditionrecord_for_api_slspricingconditionrecord_srv": {
+        "description": "Retrieve a specific pricing condition record.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "ConditionRecord": {
+              "type": "string",
+              "description": "Condition record number"
+            }
+          },
+          "required": [
+            "ConditionRecord"
+          ]
+        },
+        "mock_response": {
+          "ConditionRecord": "0000000001",
+          "ConditionType": "PR00",
+          "Material": "TG11",
+          "SalesOrganization": "1010",
+          "ConditionRateValue": "100.00",
+          "ConditionRateValueUnit": "EUR"
+        }
+      },
+      "count_a_slsprcgconditionrecord_for_api_slspricingconditionrecord_srv": {
+        "description": "Count pricing condition records.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "$filter": {
+              "type": "string"
+            }
+          },
+          "required": []
+        },
+        "mock_response": 8
+      }
+    }
+  },
+  "sap-s4-slspricingconditiontype-srv": {
+    "mcp_server_name": "sap.s4/api-slspricingconditiontype-srv-mcp-server",
+    "description": "MCP server for SAP S/4HANA Condition Type for Pricing in Sales API \u2014 condition type descriptions and attributes.",
+    "tools": {
+      "list_a_slspricingconditiontype_for_api_slspricingconditiontype_srv": {
+        "description": "Retrieve a list of sales pricing condition types.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "$top": {
+              "type": "string"
+            },
+            "$filter": {
+              "type": "string"
+            },
+            "$select": {
+              "type": "string"
+            }
+          },
+          "required": []
+        },
+        "mock_response": {
+          "results": [
+            {
+              "ConditionType": "PR00",
+              "ConditionTypeName": "Price",
+              "ConditionCategory": "B",
+              "ConditionClass": "A",
+              "CalculationType": "C",
+              "ConditionTypeDescription": "Standard sales price condition type"
+            },
+            {
+              "ConditionType": "K007",
+              "ConditionTypeName": "Customer Discount",
+              "ConditionCategory": "A",
+              "ConditionClass": "A",
+              "CalculationType": "A",
+              "ConditionTypeDescription": "Percentage discount for customer"
+            }
+          ]
+        }
+      },
+      "get_a_slspricingconditiontype_for_api_slspricingconditiontype_srv": {
+        "description": "Retrieve a specific condition type by key.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "ConditionType": {
+              "type": "string",
+              "description": "Condition type key (e.g. PR00, K007)"
+            }
+          },
+          "required": [
+            "ConditionType"
+          ]
+        },
+        "mock_response": {
+          "ConditionType": "PR00",
+          "ConditionTypeName": "Price",
+          "ConditionCategory": "B",
+          "ConditionClass": "A",
+          "CalculationType": "C",
+          "ConditionTypeDescription": "Standard sales price condition type"
+        }
+      },
+      "count_a_slspricingconditiontype_for_api_slspricingconditiontype_srv": {
+        "description": "Count condition types.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "$filter": {
+              "type": "string"
+            }
+          },
+          "required": []
+        },
+        "mock_response": 15
+      },
+      "list_to_text_in_a_slspricingconditiontype_for_api_slspricingconditiontype_srv": {
+        "description": "Retrieve language-dependent text for a condition type.",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "ConditionType": {
+              "type": "string"
+            },
+            "$top": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "ConditionType"
+          ]
+        },
+        "mock_response": {
+          "results": [
+            {
+              "ConditionType": "PR00",
+              "Language": "EN",
+              "ConditionTypeName": "Price"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "created_for_agent": "product-master-data-agent",
+    "mock_mode": true,
+    "deterministic": true,
+    "total_servers": 6,
+    "total_tools": 56,
+    "generated_from": [
+      "assets/sap-s4-api-product-srv-mcp-server/mcp-translation/translation.json",
+      "assets/sap-s4-api-clfn-product-srv-mcp-server/mcp-translation/translation.json",
+      "assets/sap-s4-prodhierprods-0001-mcp-server/mcp-translation/translation.json",
+      "assets/sap-s4-slspricingprocedure-srv-mcp-server/mcp-translation/translation.json",
+      "assets/sap-s4-slspricingconditionrecord-srv-mcp-server/mcp-translation/translation.json",
+      "assets/sap-s4-slspricingconditiontype-srv-mcp-server/mcp-translation/translation.json"
+    ],
+    "generation_date": "2026-10-28"
+  }
+}

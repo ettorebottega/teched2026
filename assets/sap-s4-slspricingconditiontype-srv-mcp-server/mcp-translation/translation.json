@@ -1,0 +1,335 @@
+{
+  "mcpTranslationVersion": "0.6",
+  "target": {
+    "ordId": "sap.s4:apiResource:API_SLSPRICINGCONDITIONTYPE_SRV:v1",
+    "type": "edmx"
+  },
+  "serverInfo": {
+    "name": "sap.s4/api-slspricingconditiontype-srv-mcp-server",
+    "title": "SAP S/4 Condition Type for Pricing MCP Server",
+    "version": "1.0.0",
+    "description": "MCP server for the api_slspricingconditiontype_srv service."
+  },
+  "tools": [
+    {
+      "name": "list_a_slspricingconditiontype",
+      "title": "list_A_SlsPricingConditionType_for_api_slspricingconditiontype_srv",
+      "description": "Retrieve a list of entities from the A_SlsPricingConditionType collection in the api_slspricingconditiontype_srv service. Supports OData query options for filtering, sorting, ranking ($top), skipping ($skip), expanding related entities, counting, selecting specific properties. Only use attributes in the query options that are specified in the metadata. If the structure of the entity is not known, call get_metadata_api_slspricingconditiontype_srv tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "A_SlsPricingConditionType",
+          "crudOperation": "read",
+          "parameters": [
+            {
+              "name": "filter"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "orderby"
+            },
+            {
+              "name": "top"
+            },
+            {
+              "name": "skip"
+            },
+            {
+              "name": "expand"
+            },
+            {
+              "name": "inlinecount"
+            }
+          ]
+        },
+        "responseHeaders": [
+          {
+            "name": "age"
+          },
+          {
+            "name": "cache-control"
+          },
+          {
+            "name": "expires"
+          },
+          {
+            "name": "last-modified"
+          },
+          {
+            "name": "x-request-id"
+          },
+          {
+            "name": "x-correlation-id"
+          },
+          {
+            "name": "content-type"
+          },
+          {
+            "name": "content-encoding"
+          },
+          {
+            "name": "content-language"
+          },
+          {
+            "name": "content-length"
+          },
+          {
+            "name": "dataserviceversion"
+          },
+          {
+            "name": "etag"
+          },
+          {
+            "name": "sap-message"
+          }
+        ]
+      }
+    },
+    {
+      "name": "get_a_slspricingconditiontype",
+      "title": "get_A_SlsPricingConditionType_for_api_slspricingconditiontype_srv",
+      "description": "Retrieve a single entity by its key from the A_SlsPricingConditionType collection in the api_slspricingconditiontype_srv service. Provide the key property value(s) to identify the specific entity to retrieve. Supports OData query options for selecting specific properties ($select), expanding related entities ($expand). If the structure of the entity is not known, call get_metadata_api_slspricingconditiontype_srv tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "A_SlsPricingConditionType",
+          "crudOperation": "readByKey",
+          "parameters": [
+            {
+              "name": "ConditionUsage",
+              "newParameterName": "conditionusage"
+            },
+            {
+              "name": "ConditionApplication",
+              "newParameterName": "conditionapplication"
+            },
+            {
+              "name": "ConditionType",
+              "newParameterName": "conditiontype"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "expand"
+            }
+          ]
+        },
+        "responseHeaders": [
+          {
+            "name": "age"
+          },
+          {
+            "name": "cache-control"
+          },
+          {
+            "name": "expires"
+          },
+          {
+            "name": "last-modified"
+          },
+          {
+            "name": "x-request-id"
+          },
+          {
+            "name": "x-correlation-id"
+          },
+          {
+            "name": "content-type"
+          },
+          {
+            "name": "content-encoding"
+          },
+          {
+            "name": "content-language"
+          },
+          {
+            "name": "content-length"
+          },
+          {
+            "name": "dataserviceversion"
+          },
+          {
+            "name": "etag"
+          },
+          {
+            "name": "sap-message"
+          }
+        ]
+      }
+    },
+    {
+      "name": "get_to_slspricingconditiontype_in_a_slsprcgcndntypetext",
+      "title": "get_to_SlsPricingConditionType_in_A_SlsPrcgCndnTypeText_for_api_slspricingconditiontype_srv",
+      "description": "Navigate from A_SlsPrcgCndnTypeText to the related A_SlsPricingConditionTypeType entity via the 'to_SlsPricingConditionType' navigation property. Supports $select and $expand query options. If the structure of the entity is not known, call get_metadata_api_slspricingconditiontype_srv tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "A_SlsPrcgCndnTypeText",
+          "navigationProperty": {
+            "name": "to_SlsPricingConditionType",
+            "crudOperation": "readByKey",
+            "parameters": [
+              {
+                "name": "select"
+              },
+              {
+                "name": "expand"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "Language",
+              "newParameterName": "language"
+            },
+            {
+              "name": "ConditionUsage",
+              "newParameterName": "conditionusage"
+            },
+            {
+              "name": "ConditionApplication",
+              "newParameterName": "conditionapplication"
+            },
+            {
+              "name": "ConditionType",
+              "newParameterName": "conditiontype"
+            }
+          ]
+        },
+        "responseHeaders": [
+          {
+            "name": "age"
+          },
+          {
+            "name": "cache-control"
+          },
+          {
+            "name": "expires"
+          },
+          {
+            "name": "last-modified"
+          },
+          {
+            "name": "x-request-id"
+          },
+          {
+            "name": "x-correlation-id"
+          },
+          {
+            "name": "content-type"
+          },
+          {
+            "name": "content-encoding"
+          },
+          {
+            "name": "content-language"
+          },
+          {
+            "name": "content-length"
+          },
+          {
+            "name": "dataserviceversion"
+          },
+          {
+            "name": "etag"
+          },
+          {
+            "name": "sap-message"
+          }
+        ]
+      }
+    },
+    {
+      "name": "list_to_text_in_a_slspricingconditiontype",
+      "title": "list_to_Text_in_A_SlsPricingConditionType_for_api_slspricingconditiontype_srv",
+      "description": "Navigate from A_SlsPricingConditionType to related A_SlsPrcgCndnTypeTextType entities via the 'to_Text' navigation property. Supports OData query options for filtering, sorting, paging, expanding, counting, and selecting specific properties. If the structure of the entity is not known, call get_metadata_api_slspricingconditiontype_srv tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "A_SlsPricingConditionType",
+          "navigationProperty": {
+            "name": "to_Text",
+            "crudOperation": "read",
+            "parameters": [
+              {
+                "name": "filter"
+              },
+              {
+                "name": "select"
+              },
+              {
+                "name": "orderby"
+              },
+              {
+                "name": "top"
+              },
+              {
+                "name": "skip"
+              },
+              {
+                "name": "expand"
+              },
+              {
+                "name": "inlinecount"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "ConditionUsage",
+              "newParameterName": "conditionusage"
+            },
+            {
+              "name": "ConditionApplication",
+              "newParameterName": "conditionapplication"
+            },
+            {
+              "name": "ConditionType",
+              "newParameterName": "conditiontype"
+            }
+          ]
+        },
+        "responseHeaders": [
+          {
+            "name": "age"
+          },
+          {
+            "name": "cache-control"
+          },
+          {
+            "name": "expires"
+          },
+          {
+            "name": "last-modified"
+          },
+          {
+            "name": "x-request-id"
+          },
+          {
+            "name": "x-correlation-id"
+          },
+          {
+            "name": "content-type"
+          },
+          {
+            "name": "content-encoding"
+          },
+          {
+            "name": "content-language"
+          },
+          {
+            "name": "content-length"
+          },
+          {
+            "name": "dataserviceversion"
+          },
+          {
+            "name": "etag"
+          },
+          {
+            "name": "sap-message"
+          }
+        ]
+      }
+    }
+  ]
+}
